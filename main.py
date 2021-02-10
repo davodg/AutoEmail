@@ -55,3 +55,18 @@ for loja in lojas:
     resumo_loja = tabela_loja.groupby('ID Loja').sum()
     resumo_loja['Ticket Medio'] = resumo_loja['Valor Final'] / resumo_loja['Quantidade']
     enviar_email(resumo_loja, loja)
+
+    
+    """
+    Caso na base de dados houvesse um email para cada loja, o codigo para enviar separadamente seria esse:
+    
+    lista_emails = df['Email'].unique()
+
+    for i, loja in enumerate(lojas):
+	    tabela_loja = df.loc[df['ID Loja').sum()
+	    resumo_loja = tabela_loja.groupby('ID Loja').sum()
+    	resumo_loja['Ticket Medio'] = resumo_loja['Valor Final'] / resumo_loja['Quantidade']
+    	enviar_email(resumo_loja, loja, lista_emails[i])
+        
+Seria necessário modificar a função enviar_email para que ela receba 3 informações e atualize o destinatário
+    """
